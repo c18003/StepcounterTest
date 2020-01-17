@@ -7,21 +7,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
-import org.w3c.dom.Text;
 import android.os.Bundle;
 
 public class MainActivity extends Activity implements SensorEventListener {
 
     private SensorManager manager;
-    private Sensor delectorSensor;
     private Sensor stepCntSensor;
-    private int stepcount = 0;
     private int stepcount2 = 0;
 
-    private TextView textView;
     private TextView textView2;
 
     @Override
@@ -31,14 +25,10 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         manager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
-        delectorSensor = manager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
-
         stepCntSensor = manager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
-        textView = (TextView) findViewById(R.id.textView);
         textView2 = (TextView)findViewById(R.id.textView2);
 
-        textView.setText("STEP_DETECTOR=");
         textView2.setText("STEP_COUNTER=");
     }
 
@@ -64,11 +54,6 @@ public class MainActivity extends Activity implements SensorEventListener {
             stepcount2++;
             textView2.setText("STEP_COUNTER" + stepcount2 + "歩");
         }
-        if(sensor.getType() == Sensor.TYPE_STEP_DETECTOR){
-            Log.d("type_detector_counter",String.valueOf(values[0]));
-            stepcount++;
-            textView.setText("STEP_DETECTOR=" + stepcount + "歩");
-        }
     }
 
     @Override
@@ -77,7 +62,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         manager.registerListener(this,stepCntSensor,SensorManager.SENSOR_DELAY_NORMAL);
 
-        manager.registerListener(this,delectorSensor,SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -85,6 +69,5 @@ public class MainActivity extends Activity implements SensorEventListener {
         super.onPause();
 
         manager.unregisterListener(this,stepCntSensor);
-        manager.unregisterListener(this,delectorSensor);
     }
 }
