@@ -29,7 +29,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         textView2 = (TextView)findViewById(R.id.textView2);
 
-        textView2.setText("STEP_COUNTER=");
+        textView2.setText(" ");
     }
 
 
@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         if(sensor.getType() == sensor.TYPE_STEP_COUNTER){
             Log.d("type_step_counter",String.valueOf(values[0]));
             stepcount2++;
-            textView2.setText("STEP_COUNTER" + stepcount2 + "歩");
+            textView2.setText(" " + stepcount2 + " /歩");
         }
     }
 

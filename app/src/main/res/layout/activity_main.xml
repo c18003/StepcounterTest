@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00E676"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="52dp"
         android:text="/歩"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,13 +33,16 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_width="167dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="68dp"
         android:text="000"
-        android:textSize="36sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.668"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -58,7 +62,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="44dp"
         android:text="000"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +73,7 @@
         android:id="@+id/button"
         android:layout_width="195dp"
         android:layout_height="59dp"
+        android:background="#00E5FF"
         android:text="1週間の歩数"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
