@@ -1,20 +1,23 @@
 package com.example.stepcountertest;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
+//import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
-import android.view.ContextMenu;
+import android.view.View;
+import android.widget.Button;
+//import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.os.Bundle;
 
-public class MainActivity extends Activity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager manager;
     private Sensor stepCntSensor;
@@ -34,6 +37,15 @@ public class MainActivity extends Activity implements SensorEventListener {
         textView2 = (TextView) findViewById(R.id.textView2);
 
         textView2.setText(" ");
+
+        Button sendButton = findViewById(R.id.button);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplication(),SubActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
