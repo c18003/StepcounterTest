@@ -3,6 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mokuhyou"
-        android:title="目標" />
+        android:id="@+id/kyouyuu"
+        android:title="共有" />
 </menu>

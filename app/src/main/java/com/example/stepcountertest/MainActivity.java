@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.os.Bundle;
 
@@ -21,9 +22,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private SensorManager manager;
     private Sensor stepCntSensor;
-    private int stepcount2 = 0;
+    private int stepcount2 = -1;
 
     private TextView textView2;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +96,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.mokuhyou:
-                // ボタンをタップした際の処理を記述
-                break;
+            case R.id.kyouyuu:
+                Intent  intent  = new Intent( Intent.ACTION_SEND );
+                intent.putExtra( Intent.EXTRA_TEXT, "今日は「"+stepcount2+"歩」歩きました" );
+                intent.setType( "text/plain" );
+                startActivity( intent );
         }
         return true;
     }
